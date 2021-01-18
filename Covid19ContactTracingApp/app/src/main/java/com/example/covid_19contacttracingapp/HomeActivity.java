@@ -1,5 +1,6 @@
 package com.example.covid_19contacttracingapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
+    private final String TAG="HomeActivity";
+    private final int REQ_HOME=2;
+
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        String location=data.getStringExtra("LATLNG");
+
+        //just here to view data
+        TextView tvUsername=findViewById(R.id.tvUsername);
+        tvUsername.setText(location);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +34,8 @@ public class HomeActivity extends AppCompatActivity {
         Button btnLogout=findViewById(R.id.btnLogout);
         Button btnConfirmCovid=findViewById(R.id.btnConfirmCovid);
         Button btnSubmitData=findViewById(R.id.btnSubmitData);
+        Button btnGetLocation=findViewById(R.id.btnGetLocation);
+
 
         Intent intent =getIntent();
         tvUsername.setText(intent.getStringExtra("USERNAME"));
@@ -34,8 +48,12 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
-
-
+        btnGetLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(),GoogleMapsActivity.class);
+                startActivityForResult(intent, REQ_HOME);
+            }
+        });
     }
 }

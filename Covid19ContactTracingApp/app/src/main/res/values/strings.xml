@@ -6,6 +6,8 @@
     <string name="etPassword">enter password</string>
     <string name="btnLogout">logout</string>
     <string name="btnSubmitdata">submit whereabouts</string>
+    <string name="btnGetLocation">get location</string>
+    <string name="btnSubmitLocation">submit location</string>
     <string name="btnCovid">confirm covid-19 case</string>
     <string name="title_activity_main">MainActivity</string>
     <!--
@@ -14,4 +16,7 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_home">HomeActivity</string>
+
+    <string name="apiKey">AIzaSyAQoPbJGmaJQpj2yoQFi0At5L5RETfHN6s</string>
+
 </resources>

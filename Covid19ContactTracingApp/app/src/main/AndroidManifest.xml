@@ -3,6 +3,9 @@
     package="com.example.covid_19contacttracingapp">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.type.watch" />
 
@@ -14,6 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Covid19ContactTracingApp">
 
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="@string/apiKey"/>
+
+
+        <activity android:name=".GoogleMapsActivity"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +29,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home">
@@ -32,6 +39,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:foregroundTint="#FFFFFF"
     tools:context=".HomeActivity">
+
+    <Button
+        android:id="@+id/btnGetLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnGetLocation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDate"
+        app:layout_constraintVertical_bias="0.103" />
 
     <Button
         android:id="@+id/btnLogout"
@@ -22,12 +35,14 @@
         android:id="@+id/btnSubmitData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableTint="#FFFFFF"
         android:text="@string/btnSubmitdata"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDate"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGetLocation"
+        app:layout_constraintVertical_bias="0.044" />
 
     <Button
         android:id="@+id/btnConfirmCovid"
@@ -38,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSubmitData"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.103" />
 
     <TextView
         android:id="@+id/tvUsername"
