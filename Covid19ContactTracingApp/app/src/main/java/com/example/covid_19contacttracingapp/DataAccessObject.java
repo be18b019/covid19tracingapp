@@ -19,15 +19,19 @@ public class DataAccessObject extends SQLiteOpenHelper {
 
     private final String TAG = "DataAccessObject";
 
+    //Table Covid_Info
     private final String USER_TABLE = "Registered_Users";
     private final String COVID_19_INFO_TABLE = "Covid_Info";
     private final String COL_USERNAME = "Username";
     private final String COL_PASSWORD = "Password";
+
+    //Table Covid_Information
     private final String COL_LATITUDE = "Latitude_Location";
     private final String COL_LONGITUDE = "Longitude_Location";
     private final String COLUMN_DATETIME = "Date_and_Time";
     private final String COLUMN_COV19_POSITIVE = "Covid_19_Positive";
     private final String COLUMN_ID = "ID";
+
     private final int DISTANCE_THRESHOLD = 100;
     private final int TIME_DIF_THRESHOLD = 1000*60*60;
 

@@ -10,44 +10,20 @@ public class User {
     Integer ID;
     Boolean Covid19Positive;
 
-    public Integer getID() {
-        return ID;
-    }
-
-    public void setID(Integer ID) {
-        this.ID = ID;
-    }
-
     public Double getLatitudeLocation() {
         return LatitudeLocation;
-    }
-
-    public void setLatitudeLocation(Double latitudeLocation) {
-        LatitudeLocation = latitudeLocation;
     }
 
     public Double getLongitudeLocation() {
         return LongitudeLocation;
     }
 
-    public void setLongitudeLocation(Double longitudeLocation) {
-        LongitudeLocation = longitudeLocation;
-    }
-
     public long getDateTimeInMillis() {
         return DateTimeInMillis;
     }
 
-    public void setDateTimeInMillis(Integer dateTimeInMillis) {
-        DateTimeInMillis = dateTimeInMillis;
-    }
-
     public Boolean getCovid19Positive() {
         return Covid19Positive;
-    }
-
-    public void setCovid19Positive(Boolean covid19Positive) {
-        Covid19Positive = covid19Positive;
     }
 
     public User(Integer ID, String username, Double latitudeLocation, Double longitudeLocation, long dateTimeInMillis, Boolean covid19Positive) {

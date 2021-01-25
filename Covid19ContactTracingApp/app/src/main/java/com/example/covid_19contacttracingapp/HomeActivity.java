@@ -44,8 +44,6 @@ public class HomeActivity extends AppCompatActivity implements DatePickerDialog.
     Calendar mCalender = Calendar.getInstance();
     Double mLatitude, mLongitude;
     Boolean mCovid19Positive;
-    //FusedLocationProviderClient mFusedLocationClient;
-    int PERMISSION_ID = 44;
     private final int LAUNCH_GOOGLE_MAPS = 1;
 
     @Override
@@ -59,9 +57,6 @@ public class HomeActivity extends AppCompatActivity implements DatePickerDialog.
             mLatitude = locationIntent.getDoubleExtra("latitude", 0);
             mLongitude = locationIntent.getDoubleExtra("longitude", 0);
             showDatePickerDialog();
-            //just here to view data
-            /*TextView tvUsername = findViewById(R.id.tvUsername);
-            tvUsername.setText(String.valueOf(longitude));*/
         }
     }
 
@@ -96,16 +91,11 @@ public class HomeActivity extends AppCompatActivity implements DatePickerDialog.
         setContentView(R.layout.activity_home);
 
         TextView tvUsername = findViewById(R.id.tvUsername);
-        /*EditText etTime = findViewById(R.id.etTime);
-        EditText etDate = findViewById(R.id.etDate);*/
         Button btnLogout = findViewById(R.id.btnLogout);
-        /*Button btnConfirmCovid = findViewById(R.id.btnConfirmCovid);
-        Button btnSubmitData = findViewById(R.id.btnSubmitData);*/
         Button btnSetLocation = findViewById(R.id.btnSetLocation);
         Intent intent = getIntent();
         String username = intent.getStringExtra("USERNAME");
         tvUsername.setText(username);
-        //mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,8 +110,6 @@ public class HomeActivity extends AppCompatActivity implements DatePickerDialog.
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(),GoogleMapsActivity.class);
                 startActivityForResult(intent, LAUNCH_GOOGLE_MAPS);
-                /*SetLocationDialogFragment aSetLocationDialogFragment = new SetLocationDialogFragment();
-                aSetLocationDialogFragment.show(getSupportFragmentManager(), "location");*/
             }
         });
 
@@ -189,7 +177,6 @@ public class HomeActivity extends AppCompatActivity implements DatePickerDialog.
                         Toast.LENGTH_LONG).show();
             }
             if (user != null) {
-//                HealthData avgHealthData = dataAccessObject.getAVGHealthData();
                 boolean success = dataAccessObject.addUserToCovidInfoTable(user);
                 if (success) {
                     Integer covidContacts = getCovidContacts(dataAccessObject, user);
@@ -197,123 +184,7 @@ public class HomeActivity extends AppCompatActivity implements DatePickerDialog.
                         showAlertDialog(covidContacts);
                     }
                 }
-                /*if (avgHealthData != null) {
-                    Toast.makeText(MainActivity.this, user.compare(avgHealthData),
-                            Toast.LENGTH_LONG).show();
-                }*/
             }
         }
     }
-
-    /*@Override
-    public void onSetLocationDialogPositiveClick(DialogFragment dialog) {
-        getLastLocation();
-        showDatePickerDialog();
-    }*/
-
-    /*@SuppressLint("MissingPermission")
-    private void getLastLocation() {
-        // check if permissions are given
-        if (checkPermissions()) {
-
-            // check if location is enabled
-            if (isLocationEnabled()) {
-
-                // getting last
-                // location from
-                // FusedLocationClient
-                // object
-                mFusedLocationClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Location> task) {
-                        Location location = task.getResult();
-                        if (location == null) {
-                            requestNewLocationData();
-                        } else {
-                            mLatitude = location.getLatitude();
-                            mLongitude = location.getLongitude();
-                        }
-                    }
-                });
-            } else {
-                Toast.makeText(this, "Please turn on" + " your location...", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                startActivity(intent);
-            }
-        } else {
-            // if permissions aren't available,
-            // request for permissions
-            requestPermissions();
-        }
-    }*/
-
-    /*@SuppressLint("MissingPermission")
-    private void requestNewLocationData() {
-
-        // Initializing LocationRequest
-        // object with appropriate methods
-        LocationRequest mLocationRequest = new LocationRequest();
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        mLocationRequest.setInterval(5);
-        mLocationRequest.setFastestInterval(0);
-        mLocationRequest.setNumUpdates(1);
-
-        // setting LocationRequest
-        // on FusedLocationClient
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
-    }*/
-
-    /*private LocationCallback mLocationCallback = new LocationCallback() {
-
-        @Override
-        public void onLocationResult(LocationResult locationResult) {
-            Location mLastLocation = locationResult.getLastLocation();
-            mLatitude = mLastLocation.getLatitude();
-            mLongitude = mLastLocation.getLongitude();
-        }
-    };
-
-    // method to check for permissions
-    private boolean checkPermissions() {
-        return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
-
-        // If we want background location
-        // on Android 10.0 and higher,
-        // use:
-        //return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED;
-    }
-
-    // method to request for permissions
-    private void requestPermissions() {
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_ID);
-    }
-
-    // method to check
-    // if location is enabled
-    private boolean isLocationEnabled() {
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-    }
-
-    // If everything is alright then
-    @Override
-    public void
-    onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == PERMISSION_ID) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                getLastLocation();
-            }
-        }
-    }*/
-
-    /*@Override
-    public void onResume() {
-        super.onResume();
-        if (checkPermissions()) {
-            getLastLocation();
-        }
-    }*/
 }
