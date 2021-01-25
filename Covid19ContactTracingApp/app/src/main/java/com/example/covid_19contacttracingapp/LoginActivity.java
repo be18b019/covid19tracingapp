@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
     private final String TAG="LoginActivity";
     private final int REQ_MAIN=1;
-    private LoginDAO LoginDAO;
+    private DataAccessObject dataAccessObject;
 
 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         Button btnLogin=findViewById(R.id.btnLogin);
         Button btnRegister=findViewById(R.id.btnRegister);
 
-        LoginDAO=new LoginDAO(this);
+        dataAccessObject =new DataAccessObject(this);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"username or password is missing", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Boolean matching=LoginDAO.checkUserNamePassword(username, password);
+                    Boolean matching= dataAccessObject.checkUserNamePassword(username, password);
                     if (matching){
                         Intent intent= new Intent(getApplicationContext(),HomeActivity.class);
                         intent.putExtra("USERNAME", username);
@@ -71,9 +71,9 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"username or password is missing", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Boolean userExists=LoginDAO.checkUserName(username);
+                    Boolean userExists= dataAccessObject.checkUserName(username);
                     if (userExists==false){
-                        Boolean registeredSuccessfully=LoginDAO.registerUser(user);
+                        Boolean registeredSuccessfully= dataAccessObject.registerUser(user);
                         if (registeredSuccessfully){
                             Toast.makeText(LoginActivity.this,"registered successfully", Toast.LENGTH_LONG).show();
                             Intent intent= new Intent(getApplicationContext(),HomeActivity.class);

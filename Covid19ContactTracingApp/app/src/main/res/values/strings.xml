@@ -6,10 +6,16 @@
     <string name="etPassword">enter password</string>
     <string name="btnLogout">logout</string>
     <string name="btnSubmitdata">submit whereabouts</string>
-    <string name="btnGetLocation">get location</string>
+    <string name="btnSetLocation">Contribute your data to Covid-19 tracing app</string>
+    <string name="getCurrentLocation">Set current location</string>
+    <string name="chooseLocation">Choose which Location</string>
     <string name="btnSubmitLocation">submit location</string>
     <string name="btnCovid">confirm covid-19 case</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="setPreviousLocation">Set location in the past</string>
+    <string name="Covid19Dialog">Have you been tested positive for COVID-19?</string>
+    <string name="Covid19PositiveAnswer">Yes, I\'ve been tested positive!</string>
+    <string name="Covid19NegativeAnswer">No, I haven\'t been tested positive!</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.

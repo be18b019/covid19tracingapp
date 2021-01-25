@@ -2,22 +2,74 @@ package com.example.covid_19contacttracingapp;
 
 public class User {
 
-    String username;
-    String password;
+    String Username;
+    String Password;
+    Double LatitudeLocation;
+    Double LongitudeLocation;
+    long DateTimeInMillis;
+    Integer ID;
+    Boolean Covid19Positive;
 
-    //maybe delete
-    public User()
-    {}
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    public Double getLatitudeLocation() {
+        return LatitudeLocation;
+    }
+
+    public void setLatitudeLocation(Double latitudeLocation) {
+        LatitudeLocation = latitudeLocation;
+    }
+
+    public Double getLongitudeLocation() {
+        return LongitudeLocation;
+    }
+
+    public void setLongitudeLocation(Double longitudeLocation) {
+        LongitudeLocation = longitudeLocation;
+    }
+
+    public long getDateTimeInMillis() {
+        return DateTimeInMillis;
+    }
+
+    public void setDateTimeInMillis(Integer dateTimeInMillis) {
+        DateTimeInMillis = dateTimeInMillis;
+    }
+
+    public Boolean getCovid19Positive() {
+        return Covid19Positive;
+    }
+
+    public void setCovid19Positive(Boolean covid19Positive) {
+        Covid19Positive = covid19Positive;
+    }
+
+    public User(Integer ID, String username, Double latitudeLocation, Double longitudeLocation, long dateTimeInMillis, Boolean covid19Positive) {
+        Username = username;
+        LatitudeLocation = latitudeLocation;
+        LongitudeLocation = longitudeLocation;
+        DateTimeInMillis = dateTimeInMillis;
+        this.ID = ID;
+        Covid19Positive = covid19Positive;
+    }
 
     public User(String username, String password) {
-        this.username = username;
-        this.password=password;
+        this.Username = username;
+        this.Password = password;
     }
+
     public String getUsername() {
-        return username;
+        return Username;
     }
+
     public String getPassword() {
-        return password;
+        return Password;
     }
 
 }
