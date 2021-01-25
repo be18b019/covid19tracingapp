@@ -11,10 +11,10 @@
         android:id="@+id/btnSetLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#2196F3"
         android:text="@string/btnSetLocation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +22,7 @@
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#2196F3"
         android:text="@string/btnLogout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,14 +33,14 @@
 
     <TextView
         android:id="@+id/tvUsername"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/back"
         android:text="Username"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.906"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+        android:textColor="#2196F3"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogout"
+        app:layout_constraintStart_toStartOf="@+id/btnLogout"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

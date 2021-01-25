@@ -147,7 +147,15 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
                 if (location == null) {
                     requestNewLocationData();
                 } else {
-                    latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                    mapFragment.getMapAsync(new OnMapReadyCallback() {
+                        @Override
+                        public void onMapReady(GoogleMap googleMap) {
+                            latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                            MarkerOptions markerOptions = new MarkerOptions().position(latLng);
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 19));
+                            googleMap.addMarker(markerOptions);
+                        }
+                    });
                 }
             }
         });

@@ -6,7 +6,7 @@
     <string name="etPassword">enter password</string>
     <string name="btnLogout">logout</string>
     <string name="btnSubmitdata">submit whereabouts</string>
-    <string name="btnSetLocation">Contribute your data to Covid-19 tracing app</string>
+    <string name="btnSetLocation">Contribute your data \nto Covid-19 tracing app</string>
     <string name="getCurrentLocation">Set current location</string>
     <string name="chooseLocation">Choose which Location</string>
     <string name="btnSubmitLocation">submit location</string>
